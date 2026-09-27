@@ -1,0 +1,105 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root,
+  html.dark {
+    --color-ink: 9 9 11;
+    --color-ink-raised: 24 24 27;
+    --color-paper: 245 247 250;
+    --color-slate: 148 163 184;
+    --color-blue: 14 165 233;
+    --color-blue-dim: 2 132 199;
+    --color-violet: 139 92 246;
+    --color-line: 39 39 42;
+    --color-coral: 236 72 153;
+    --color-coral-dim: 219 39 119;
+    --color-teal: 14 165 233;
+  }
+
+  html.light {
+    --color-ink: 247 248 252;
+    --color-ink-raised: 255 255 255;
+    --color-paper: 11 45 91;
+    --color-slate: 90 99 122;
+    --color-blue: 14 165 233;
+    --color-blue-dim: 2 132 199;
+    --color-violet: 139 92 246;
+    --color-line: 222 227 240;
+    --color-coral: 236 72 153;
+    --color-coral-dim: 190 24 93;
+    --color-teal: 2 132 199;
+  }
+
+  * {
+    @apply border-line;
+  }
+
+  body {
+    @apply bg-ink text-paper font-body;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display;
+  }
+}
+
+@layer utilities {
+  /* Bouncy, springy feel for buttons/links/CTAs. Apply alongside existing
+     background/color transition classes — this only owns transform. */
+  .btn-bounce {
+    transition-property: transform, background-color, opacity, box-shadow, color;
+    transition-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1);
+    transition-duration: 280ms;
+    will-change: transform;
+  }
+  .btn-bounce:hover {
+    transform: translateY(-2px) scale(1.045);
+  }
+  .btn-bounce:active {
+    transform: translateY(0) scale(0.94);
+    transition-duration: 120ms;
+  }
+
+  /* Slightly larger lift for the round floating action buttons (chat, whatsapp, theme toggle) */
+  .fab-bounce {
+    transition-property: transform, background-color, box-shadow, border-color;
+    transition-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1);
+    transition-duration: 280ms;
+    will-change: transform;
+  }
+  .fab-bounce:hover {
+    transform: translateY(-3px) scale(1.1) rotate(-3deg);
+  }
+  .fab-bounce:active {
+    transform: translateY(0) scale(0.92) rotate(0deg);
+    transition-duration: 120ms;
+  }
+
+  /* Gentle lift for whole clickable cards (service cards, etc.) */
+  .card-bounce {
+    transition-property: transform, border-color, box-shadow;
+    transition-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1);
+    transition-duration: 320ms;
+    will-change: transform;
+  }
+  .card-bounce:hover {
+    transform: translateY(-5px) scale(1.015);
+  }
+  .card-bounce:active {
+    transform: translateY(-1px) scale(0.99);
+    transition-duration: 120ms;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

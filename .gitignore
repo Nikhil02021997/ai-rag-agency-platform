@@ -1,0 +1,37 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Virtual environment
+.venv/
+venv/
+env/
+
+# Environment variables
+.env
+.env.*
+!.env.example
+
+# macOS
+.DS_Store
+
+# IDE
+.vscode/
+
+# Logs
+*.log
+
+# AI / ML models
+ai/models/*
+!ai/models/.gitkeep
+
+# Processed data
+data/processed/*
+
+# Secrets
+*.pem
+*.keynode_modules/
+.env
+node_modules/
+.env
