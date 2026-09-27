@@ -1,0 +1,18 @@
+{
+  "/_not-found/page": "/_not-found",
+  "/robots.txt/route": "/robots.txt",
+  "/sitemap.xml/route": "/sitemap.xml",
+  "/contact/page": "/contact",
+  "/page": "/",
+  "/case-studies/page": "/case-studies",
+  "/about/page": "/about",
+  "/services/data-analytics/page": "/services/data-analytics",
+  "/services/ai-rag/page": "/services/ai-rag",
+  "/services/page": "/services",
+  "/services/digital-marketing/page": "/services/digital-marketing",
+  "/services/influencer-marketing/page": "/services/influencer-marketing",
+  "/services/web-dev/page": "/services/web-dev",
+  "/services/google-meta-ads/page": "/services/google-meta-ads",
+  "/services/website-creation-maintenance/page": "/services/website-creation-maintenance",
+  "/services/seo/page": "/services/seo"
+}

@@ -1,8 +1,18 @@
 {
-  "/page": "app/page.js",
-  "/services/google-meta-ads/page": "app/services/google-meta-ads/page.js",
-  "/about/page": "app/about/page.js",
-  "/services/page": "app/services/page.js",
   "/_not-found/page": "app/_not-found/page.js",
+  "/robots.txt/route": "app/robots.txt/route.js",
+  "/sitemap.xml/route": "app/sitemap.xml/route.js",
+  "/contact/page": "app/contact/page.js",
+  "/page": "app/page.js",
+  "/case-studies/page": "app/case-studies/page.js",
+  "/about/page": "app/about/page.js",
+  "/services/data-analytics/page": "app/services/data-analytics/page.js",
+  "/services/ai-rag/page": "app/services/ai-rag/page.js",
+  "/services/page": "app/services/page.js",
+  "/services/digital-marketing/page": "app/services/digital-marketing/page.js",
+  "/services/influencer-marketing/page": "app/services/influencer-marketing/page.js",
+  "/services/web-dev/page": "app/services/web-dev/page.js",
+  "/services/google-meta-ads/page": "app/services/google-meta-ads/page.js",
+  "/services/website-creation-maintenance/page": "app/services/website-creation-maintenance/page.js",
   "/services/seo/page": "app/services/seo/page.js"
 }
