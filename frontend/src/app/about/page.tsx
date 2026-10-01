@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 };
 
 const VALUES = [
-  { title: "Grounded in your data", description: "We don&apos;t ship generic AI. Every system we build is trained on your documents, your product, your customers." },
+  { title: "Grounded in your data", description: "We don’t ship generic AI. Every system we build is trained on your documents, your product, your customers." },
   { title: "Work you can see weekly", description: "No black-box months of silence. You see working builds every week, not a reveal at the end." },
   { title: "Numbers over opinions", description: "Every campaign and build is measured against a real target, agreed before we start." },
   { title: "Small team, direct access", description: "You talk to the people doing the work, not an account manager relaying messages." },

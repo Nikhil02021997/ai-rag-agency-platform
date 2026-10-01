@@ -32,14 +32,30 @@ const ABOUT_LINKS = [
 
 const WORK_LINKS = [
   { href: "/case-studies", label: "All case studies", blurb: "Every campaign and build we've shipped" },
-  { href: "/case-studies#growth", label: "Brand growth campaigns", blurb: "Awareness and acquisition results" },
-  { href: "/case-studies#ecommerce", label: "E-commerce performance", blurb: "Ad spend turned into revenue" },
+  { href: "/case-studies#growth", label: "Brand growth", blurb: "Influencer and awareness campaigns" },
+  { href: "/case-studies#ecommerce", label: "E-commerce performance", blurb: "Google & Meta ads tied to ROAS" },
+  { href: "/case-studies#search", label: "Search & organic growth", blurb: "SEO that moves rankings and traffic" },
+  { href: "/case-studies#ai", label: "AI support systems", blurb: "RAG assistants trained on client data" },
 ];
 
+// "Get a quote" is the button next to this menu, so the Contact menu only
+// lists direct channels instead of repeating it.
 const CONTACT_LINKS = [
-  { href: "/contact", label: "Get a quote", blurb: "Tell us about your project" },
-  { href: "mailto:hello@nisuvmarketing.com", label: "Email us directly", blurb: "hello@nisuvmarketing.com" },
+  { href: "https://wa.me/919217122561", label: "WhatsApp us", blurb: "Fastest reply, +91 92171 22561" },
+  { href: "mailto:enquiries@nisuvmarketing.com", label: "New enquiries", blurb: "enquiries@nisuvmarketing.com" },
+  { href: "mailto:support@nisuvmarketing.com", label: "Existing clients", blurb: "support@nisuvmarketing.com" },
 ];
+
+function MenuLink({ href, className, onClick, children }: { href: string; className?: string; onClick?: () => void; children: React.ReactNode }) {
+  if (href.startsWith("http") || href.startsWith("mailto:")) {
+    return (
+      <a href={href} className={className} onClick={onClick} {...(href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}>
+        {children}
+      </a>
+    );
+  }
+  return <Link href={href} className={className} onClick={onClick}>{children}</Link>;
+}
 
 const INSIGHT_MENUS: Record<string, { href: string; label: string; blurb: string }[]> = {
   "/about": ABOUT_LINKS,
@@ -125,14 +141,14 @@ export default function Header() {
                           </Link>
                         ))
                       : insightLinks!.map((item) => (
-                          <Link
+                          <MenuLink
                             key={item.href}
                             href={item.href}
                             className="block rounded-xl px-3 py-2.5 transition-colors hover:bg-ink"
                           >
                             <span className="block text-sm font-medium text-paper">{item.label}</span>
                             <span className="mt-0.5 block text-xs text-slate">{item.blurb}</span>
-                          </Link>
+                          </MenuLink>
                         ))}
                   </div>
                 </div>
@@ -232,14 +248,14 @@ export default function Header() {
                           </Link>
                         ))
                       : insightLinks!.map((item) => (
-                          <Link
+                          <MenuLink
                             key={item.href}
                             href={item.href}
                             onClick={() => setOpen(false)}
                             className="py-2 text-sm text-slate transition-colors hover:text-paper"
                           >
                             {item.label}
-                          </Link>
+                          </MenuLink>
                         ))}
                   </div>
                 )}

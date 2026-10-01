@@ -64,7 +64,7 @@ export default function ServiceCardMedia({ variant }: { variant: Variant }) {
   const [videoPlaying, setVideoPlaying] = useState(false);
 
   return (
-    <div className="relative aspect-[16/10] w-full overflow-hidden rounded-xl border border-line bg-ink">
+    <div className="relative aspect-[16/10] w-full overflow-hidden rounded-xl border border-line bg-[#0f2a5c]">
       <style>{`
         @keyframes cardDraw { to { stroke-dashoffset: 0; } }
         @keyframes cardFadeUp { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
@@ -79,8 +79,8 @@ export default function ServiceCardMedia({ variant }: { variant: Variant }) {
 
       {/* Animated SVG scene — the reliable default. Always mounted immediately
           so there is never a blank gap while a real video (if any) loads. */}
-      <div className="absolute inset-0 bg-gradient-to-br from-ink-raised to-ink">
-        <svg viewBox="0 0 400 220" className="absolute inset-0 h-full w-full opacity-90" preserveAspectRatio="xMidYMid slice">
+      <div className="absolute inset-0 bg-gradient-to-b from-[#16396f] to-[#0c2350]">
+        <svg viewBox="0 0 400 220" className="absolute inset-0 h-full w-full" preserveAspectRatio="xMidYMid slice">
           {variant === "ai-rag" && <AiRagScene />}
           {variant === "marketing" && <MarketingScene />}
           {variant === "web-dev" && <WebDevScene />}
@@ -111,14 +111,14 @@ export default function ServiceCardMedia({ variant }: { variant: Variant }) {
         <source src={VIDEO_SOURCES[variant]} type="video/mp4" />
       </video>
 
-      <div className="absolute inset-0 bg-gradient-to-t from-ink/70 via-transparent to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-t from-[#0c2350]/50 via-transparent to-transparent" />
 
       {/* Video-player chrome: rec dot + label, top-left; icon badge, top-right */}
-      <div className="absolute left-3 top-3 flex items-center gap-1.5 rounded-full bg-ink/70 px-2.5 py-1 backdrop-blur">
+      <div className="absolute left-3 top-3 flex items-center gap-1.5 rounded-full bg-[#0c2350]/70 px-2.5 py-1 backdrop-blur">
         <span className="h-1.5 w-1.5 rounded-full bg-coral" style={{ animation: "cardBlinkRec 1.6s ease-in-out infinite" }} />
-        <span className="text-[10px] font-medium uppercase tracking-wide text-paper/90">{LABELS[variant]}</span>
+        <span className="text-[10px] font-medium uppercase tracking-wide text-white/90">{LABELS[variant]}</span>
       </div>
-      <div className="absolute right-3 top-3 flex h-8 w-8 items-center justify-center rounded-lg bg-ink/70 backdrop-blur [&_svg]:h-5 [&_svg]:w-5">
+      <div className="absolute right-3 top-3 flex h-8 w-8 items-center justify-center rounded-lg bg-[#0c2350]/70 backdrop-blur [&_svg]:h-5 [&_svg]:w-5">
         <ServiceIcon service={KEY_BY_VARIANT[variant]} />
       </div>
     </div>
@@ -132,7 +132,7 @@ function AiRagScene() {
   return (
     <>
       {nodes.map(([x, y], i) => (
-        <line key={i} x1={x} y1={y} x2="200" y2="110" stroke="rgb(var(--color-line))" strokeWidth="1" opacity="0.6" />
+        <line key={i} x1={x} y1={y} x2="200" y2="110" stroke="rgba(255,255,255,0.16)" strokeWidth="1" opacity="0.6" />
       ))}
       {nodes.map(([x, y], i) => (
         <circle key={i} cx={x} cy={y} r="3.5" fill={i % 2 === 0 ? "#4CC9F0" : "#FF6F61"}
@@ -145,7 +145,7 @@ function AiRagScene() {
           <animateMotion dur={`${2.2 + i * 0.4}s`} begin={`${i * 0.5}s`} repeatCount="indefinite" path={path} />
         </circle>
       ))}
-      <circle cx="200" cy="110" r="22" fill="rgb(var(--color-ink))" stroke="#FF6F61" strokeWidth="2" />
+      <circle cx="200" cy="110" r="22" fill="#0f2a5c" stroke="#FF6F61" strokeWidth="2" />
       <circle cx="200" cy="110" r="22" fill="none" stroke="#FF6F61" strokeWidth="1.5" opacity="0.5"
         style={{ transformOrigin: "200px 110px", animation: "cardClickPulse 2.2s ease-out infinite" }} />
     </>
@@ -161,10 +161,10 @@ function MarketingScene() {
         <animateMotion dur="3s" repeatCount="indefinite" path="M 30 170 Q 120 190 180 120 T 330 50" />
       </circle>
       {[[60, 40, 150], [110, 65, 130], [160, 20, 175], [210, 90, 105], [260, 50, 145]].map(([x, h, y], i) => (
-        <rect key={i} x={x} y={y} width="26" height={h} rx="3" fill={i % 2 === 0 ? "#FF6F61" : "rgb(var(--color-line))"}
+        <rect key={i} x={x} y={y} width="26" height={h} rx="3" fill={i % 2 === 0 ? "#FF6F61" : "rgba(255,255,255,0.16)"}
           style={{ transformOrigin: `${Number(x) + 13}px 195px`, animation: `cardRiseBar 1.2s cubic-bezier(.2,.9,.3,1) ${i * 0.15}s both` }} />
       ))}
-      <line x1="20" y1="195" x2="380" y2="195" stroke="rgb(var(--color-line))" strokeWidth="1.5" />
+      <line x1="20" y1="195" x2="380" y2="195" stroke="rgba(255,255,255,0.16)" strokeWidth="1.5" />
     </>
   );
 }
@@ -172,18 +172,18 @@ function MarketingScene() {
 function WebDevScene() {
   return (
     <>
-      <rect x="40" y="25" width="320" height="170" rx="8" fill="none" stroke="rgb(var(--color-line))" strokeWidth="1.5" />
-      <rect x="40" y="25" width="320" height="26" rx="8" fill="rgb(var(--color-ink))" />
+      <rect x="40" y="25" width="320" height="170" rx="8" fill="none" stroke="rgba(255,255,255,0.16)" strokeWidth="1.5" />
+      <rect x="40" y="25" width="320" height="26" rx="8" fill="#0f2a5c" />
       <circle cx="56" cy="38" r="3.5" fill="#FF6F61" />
       <circle cx="68" cy="38" r="3.5" fill="#FFC53D" />
       <circle cx="80" cy="38" r="3.5" fill="#5FA052" />
-      <rect x="120" y="33" width="180" height="10" rx="5" fill="rgb(var(--color-line))" />
+      <rect x="120" y="33" width="180" height="10" rx="5" fill="rgba(255,255,255,0.16)" />
       <rect x="124" y="37" width="0" height="4" rx="2" fill="#4CC9F0" style={{ animation: "cardGrowBar 1.6s ease-out 0.3s forwards", transformOrigin: "124px 39px" }} />
 
-      <rect x="56" y="66" width="120" height="70" rx="4" fill="rgb(var(--color-line))" opacity="0" style={{ animation: "cardFadeUp 0.5s ease-out 0.5s forwards" }} />
-      <rect x="192" y="66" width="112" height="32" rx="4" fill="rgb(var(--color-line))" opacity="0" style={{ animation: "cardFadeUp 0.5s ease-out 0.7s forwards" }} />
-      <rect x="192" y="104" width="112" height="32" rx="4" fill="rgb(var(--color-line))" opacity="0" style={{ animation: "cardFadeUp 0.5s ease-out 0.9s forwards" }} />
-      <rect x="56" y="150" width="240" height="9" rx="4.5" fill="rgb(var(--color-line))" opacity="0" style={{ animation: "cardFadeUp 0.5s ease-out 1.05s forwards" }} />
+      <rect x="56" y="66" width="120" height="70" rx="4" fill="rgba(255,255,255,0.16)" opacity="0" style={{ animation: "cardFadeUp 0.5s ease-out 0.5s forwards" }} />
+      <rect x="192" y="66" width="112" height="32" rx="4" fill="rgba(255,255,255,0.16)" opacity="0" style={{ animation: "cardFadeUp 0.5s ease-out 0.7s forwards" }} />
+      <rect x="192" y="104" width="112" height="32" rx="4" fill="rgba(255,255,255,0.16)" opacity="0" style={{ animation: "cardFadeUp 0.5s ease-out 0.9s forwards" }} />
+      <rect x="56" y="150" width="240" height="9" rx="4.5" fill="rgba(255,255,255,0.16)" opacity="0" style={{ animation: "cardFadeUp 0.5s ease-out 1.05s forwards" }} />
       <rect x="56" y="168" width="80" height="18" rx="9" fill="#FF6F61" opacity="0" style={{ animation: "cardFadeUp 0.5s ease-out 1.2s forwards" }} />
     </>
   );
@@ -192,13 +192,13 @@ function WebDevScene() {
 function AnalyticsScene() {
   return (
     <>
-      <circle cx="90" cy="110" r="46" fill="none" stroke="rgb(var(--color-line))" strokeWidth="10" />
+      <circle cx="90" cy="110" r="46" fill="none" stroke="rgba(255,255,255,0.16)" strokeWidth="10" />
       <circle cx="90" cy="110" r="46" fill="none" stroke="#FF6F61" strokeWidth="10" strokeDasharray="176" strokeDashoffset="176"
         strokeLinecap="round" transform="rotate(-90 90 110)" style={{ animation: "cardFillDonut 1.6s ease-out 0.2s forwards" }} />
-      <text x="90" y="116" textAnchor="middle" fill="rgb(var(--color-paper))" style={{ font: "600 18px sans-serif", opacity: 0, animation: "cardFadeUp 0.5s ease-out 1.6s forwards" }}>74%</text>
+      <text x="90" y="116" textAnchor="middle" fill="#ffffff" style={{ font: "600 18px sans-serif", opacity: 0, animation: "cardFadeUp 0.5s ease-out 1.6s forwards" }}>74%</text>
 
       {[[190, 60, 110], [225, 40, 130], [260, 85, 85], [295, 25, 145], [330, 65, 105]].map(([x, h, y], i) => (
-        <rect key={i} x={x} y={y} width="20" height={h} rx="3" fill="rgb(var(--color-line))"
+        <rect key={i} x={x} y={y} width="20" height={h} rx="3" fill="rgba(255,255,255,0.16)"
           style={{ transformOrigin: `${Number(x) + 10}px 170px`, animation: `cardRiseBar 1s ease-out ${0.4 + i * 0.12}s both` }} />
       ))}
       <path d="M 185 50 L 220 35 L 255 55 L 290 20 L 325 38" fill="none" stroke="#5FA052" strokeWidth="2"
@@ -215,23 +215,23 @@ function AdsScene() {
     <>
       {[[90, 90, "#FF6F61"], [200, 60, "#4CC9F0"], [310, 100, "#FFC53D"]].map(([cx, cy, color], i) => (
         <g key={i}>
-          <circle cx={cx as number} cy={cy as number} r="26" fill="none" stroke="rgb(var(--color-line))" strokeWidth="2" />
-          <circle cx={cx as number} cy={cy as number} r="15" fill="none" stroke="rgb(var(--color-line))" strokeWidth="2" />
+          <circle cx={cx as number} cy={cy as number} r="26" fill="none" stroke="rgba(255,255,255,0.16)" strokeWidth="2" />
+          <circle cx={cx as number} cy={cy as number} r="15" fill="none" stroke="rgba(255,255,255,0.16)" strokeWidth="2" />
           <circle cx={cx as number} cy={cy as number} r="5" fill={color as string} />
           <circle cx={cx as number} cy={cy as number} r="5" fill="none" stroke={color as string} strokeWidth="1.5" opacity="0.7"
             style={{ transformOrigin: `${cx}px ${cy}px`, animation: `cardClickPulse ${1.8 + i * 0.3}s ease-out ${i * 0.4}s infinite` }} />
         </g>
       ))}
       {[["4.2x ROAS", 90, 145], ["CPC ↓18%", 200, 115], ["CTR 6.1%", 310, 155]].map(([label, x, y], i) => (
-        <text key={i} x={x as number} y={y as number} textAnchor="middle" fill="rgb(var(--color-slate))"
+        <text key={i} x={x as number} y={y as number} textAnchor="middle" fill="rgba(255,255,255,0.78)"
           style={{ font: "600 11px sans-serif", opacity: 0, animation: `cardFadeUp 0.5s ease-out ${0.6 + i * 0.2}s forwards` }}>
           {label}
         </text>
       ))}
-      <line x1="20" y1="195" x2="380" y2="195" stroke="rgb(var(--color-line))" strokeWidth="1.5" />
+      <line x1="20" y1="195" x2="380" y2="195" stroke="rgba(255,255,255,0.16)" strokeWidth="1.5" />
       {[40, 90, 140, 190, 240, 290, 340].map((x, i) => (
-        <rect key={i} x={x} y={0} width="18" height="18" rx="2" fill="rgb(var(--color-line))" opacity="0"
-          style={{ transform: `translateY(${175 - (i % 3) * 10}px)`, animation: `cardFadeUp 0.4s ease-out ${1.2 + i * 0.08}s forwards` }} />
+        <rect key={i} x={x} y={177 - (i % 3) * 8} width="18" height={18 + (i % 3) * 8} rx="2" fill="rgba(255,255,255,0.16)" opacity="0"
+          style={{ animation: `cardFadeUp 0.4s ease-out ${1.2 + i * 0.08}s forwards` }} />
       ))}
     </>
   );
@@ -240,27 +240,27 @@ function AdsScene() {
 function WebcareScene() {
   return (
     <>
-      <rect x="40" y="25" width="230" height="170" rx="8" fill="none" stroke="rgb(var(--color-line))" strokeWidth="1.5" />
-      <rect x="40" y="25" width="230" height="24" rx="8" fill="rgb(var(--color-ink))" />
+      <rect x="40" y="25" width="230" height="170" rx="8" fill="none" stroke="rgba(255,255,255,0.16)" strokeWidth="1.5" />
+      <rect x="40" y="25" width="230" height="24" rx="8" fill="#0f2a5c" />
       <circle cx="55" cy="37" r="3" fill="#FF6F61" />
       <circle cx="65" cy="37" r="3" fill="#FFC53D" />
       <circle cx="75" cy="37" r="3" fill="#5FA052" />
-      <rect x="56" y="62" width="80" height="60" rx="4" fill="rgb(var(--color-line))" opacity="0" style={{ animation: "cardFadeUp 0.5s ease-out 0.3s forwards" }} />
-      <rect x="146" y="62" width="100" height="28" rx="4" fill="rgb(var(--color-line))" opacity="0" style={{ animation: "cardFadeUp 0.5s ease-out 0.5s forwards" }} />
-      <rect x="146" y="94" width="100" height="28" rx="4" fill="rgb(var(--color-line))" opacity="0" style={{ animation: "cardFadeUp 0.5s ease-out 0.7s forwards" }} />
-      <rect x="56" y="135" width="190" height="8" rx="4" fill="rgb(var(--color-line))" opacity="0" style={{ animation: "cardFadeUp 0.5s ease-out 0.9s forwards" }} />
-      <rect x="56" y="150" width="140" height="8" rx="4" fill="rgb(var(--color-line))" opacity="0" style={{ animation: "cardFadeUp 0.5s ease-out 1.05s forwards" }} />
+      <rect x="56" y="62" width="80" height="60" rx="4" fill="rgba(255,255,255,0.16)" opacity="0" style={{ animation: "cardFadeUp 0.5s ease-out 0.3s forwards" }} />
+      <rect x="146" y="62" width="100" height="28" rx="4" fill="rgba(255,255,255,0.16)" opacity="0" style={{ animation: "cardFadeUp 0.5s ease-out 0.5s forwards" }} />
+      <rect x="146" y="94" width="100" height="28" rx="4" fill="rgba(255,255,255,0.16)" opacity="0" style={{ animation: "cardFadeUp 0.5s ease-out 0.7s forwards" }} />
+      <rect x="56" y="135" width="190" height="8" rx="4" fill="rgba(255,255,255,0.16)" opacity="0" style={{ animation: "cardFadeUp 0.5s ease-out 0.9s forwards" }} />
+      <rect x="56" y="150" width="140" height="8" rx="4" fill="rgba(255,255,255,0.16)" opacity="0" style={{ animation: "cardFadeUp 0.5s ease-out 1.05s forwards" }} />
       <rect x="56" y="168" width="70" height="16" rx="8" fill="#FF6F61" opacity="0" style={{ animation: "cardFadeUp 0.5s ease-out 1.2s forwards" }} />
 
       <g style={{ transformOrigin: "335px 100px" }}>
-        <circle cx="335" cy="100" r="30" fill="none" stroke="rgb(var(--color-line))" strokeWidth="2" />
-        <g className="stroke-teal" strokeWidth="3">
+        <circle cx="335" cy="100" r="30" fill="none" stroke="rgba(255,255,255,0.16)" strokeWidth="2" />
+        <g className="stroke-[#4CC9F0]" strokeWidth="3">
           <path d="M335 78 L335 72 M335 128 L335 122 M357 100 L363 100 M307 100 L313 100 M350.5 85.5 L354.8 81.2 M319.5 114.5 L315.2 118.8 M350.5 114.5 L354.8 118.8 M319.5 85.5 L315.2 81.2" strokeLinecap="round" fill="none" />
         </g>
         <circle cx="335" cy="100" r="9" className="fill-coral" />
         <animateTransform attributeName="transform" type="rotate" values="0 335 100;360 335 100" dur="4s" repeatCount="indefinite" />
       </g>
-      <text x="335" y="150" textAnchor="middle" fill="rgb(var(--color-slate))" style={{ font: "600 11px sans-serif", opacity: 0, animation: "cardFadeUp 0.5s ease-out 1.4s forwards" }}>
+      <text x="335" y="150" textAnchor="middle" fill="rgba(255,255,255,0.78)" style={{ font: "600 11px sans-serif", opacity: 0, animation: "cardFadeUp 0.5s ease-out 1.4s forwards" }}>
         99.9% uptime
       </text>
     </>
@@ -270,19 +270,19 @@ function WebcareScene() {
 function SeoScene() {
   return (
     <>
-      <rect x="30" y="24" width="250" height="24" rx="12" fill="rgb(var(--color-line))" opacity="0" style={{ animation: "cardFadeUp 0.5s ease-out 0.1s forwards" }} />
-      <circle cx="48" cy="36" r="5" className="fill-none stroke-teal" strokeWidth="2" />
-      <line x1="51.5" y1="39.5" x2="56" y2="44" className="stroke-teal" strokeWidth="2" strokeLinecap="round" />
-      <rect x="66" y="32" width="140" height="8" rx="4" fill="rgb(var(--color-ink))" />
+      <rect x="30" y="24" width="250" height="24" rx="12" fill="rgba(255,255,255,0.16)" opacity="0" style={{ animation: "cardFadeUp 0.5s ease-out 0.1s forwards" }} />
+      <circle cx="48" cy="36" r="5" className="fill-none stroke-[#4CC9F0]" strokeWidth="2" />
+      <line x1="51.5" y1="39.5" x2="56" y2="44" className="stroke-[#4CC9F0]" strokeWidth="2" strokeLinecap="round" />
+      <rect x="66" y="32" width="140" height="8" rx="4" fill="#0f2a5c" />
 
-      {[["yoursite.com", 1, "#5FA052"], ["competitor-a", 2, "rgb(var(--color-slate))"], ["competitor-b", 3, "rgb(var(--color-slate))"]].map(
+      {[["yoursite.com", 1, "#5FA052"], ["competitor-a", 2, "rgba(255,255,255,0.78)"], ["competitor-b", 3, "rgba(255,255,255,0.78)"]].map(
         ([label, rank, color], i) => (
           <g key={i} opacity="0" style={{ animation: `cardFadeUp 0.5s ease-out ${0.4 + i * 0.2}s forwards` }}>
-            <rect x="30" y={70 + i * 34} width="250" height="24" rx="6" fill="rgb(var(--color-ink-raised))" stroke="rgb(var(--color-line))" />
+            <rect x="30" y={70 + i * 34} width="250" height="24" rx="6" fill="#1b3f7a" stroke="rgba(255,255,255,0.16)" />
             <text x="42" y={87 + i * 34} fill={color as string} style={{ font: "700 12px sans-serif" }}>
               #{rank as number}
             </text>
-            <text x="62" y={87 + i * 34} fill="rgb(var(--color-paper))" style={{ font: "500 11px sans-serif" }}>
+            <text x="62" y={87 + i * 34} fill="#ffffff" style={{ font: "500 11px sans-serif" }}>
               {label as string}
             </text>
           </g>
@@ -291,7 +291,7 @@ function SeoScene() {
 
       <path d="M 300 160 L 320 130 L 340 145 L 360 100" fill="none" stroke="#4CC9F0" strokeWidth="2.5" strokeDasharray="0,140"
         style={{ animation: "cardDraw 1.6s ease-out 1s forwards" }} />
-      <text x="345" y="90" fill="#4CC9F0" style={{ font: "700 13px sans-serif", opacity: 0, animation: "cardFadeUp 0.4s ease-out 2s forwards" }}>
+      <text x="325" y="88" textAnchor="middle" fill="#4CC9F0" style={{ font: "700 13px sans-serif", opacity: 0, animation: "cardFadeUp 0.4s ease-out 2s forwards" }}>
         +212%
       </text>
     </>
@@ -303,11 +303,11 @@ function InfluencerScene() {
     <>
       {[[70, 110], [200, 70], [330, 120]].map(([cx, cy], i) => (
         <g key={i} opacity="0" style={{ animation: `cardFadeUp 0.5s ease-out ${0.2 + i * 0.2}s forwards` }}>
-          <circle cx={cx} cy={cy} r="24" fill="rgb(var(--color-ink-raised))" stroke="rgb(var(--color-line))" strokeWidth="2" />
-          <circle cx={cx} cy={cy - 5} r="8" fill="rgb(var(--color-line))" />
-          <path d={`M${cx - 13} ${cy + 18} a13 10 0 0 1 26 0`} fill="rgb(var(--color-line))" />
+          <circle cx={cx} cy={cy} r="24" fill="#1b3f7a" stroke="rgba(255,255,255,0.16)" strokeWidth="2" />
+          <circle cx={cx} cy={cy - 5} r="8" fill="rgba(255,255,255,0.16)" />
+          <path d={`M${cx - 13} ${cy + 18} a13 10 0 0 1 26 0`} fill="rgba(255,255,255,0.16)" />
           <circle cx={cx + 17} cy={cy - 17} r="9" fill="#FF6F61" style={{ animation: `cardPulse ${1.6 + i * 0.3}s ease-in-out ${i * 0.3}s infinite` }} />
-          <path d={`M${cx + 14} ${cy - 17} l2 2.4 l4 -5`} fill="none" stroke="rgb(var(--color-paper))" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
+          <path d={`M${cx + 14} ${cy - 17} l2 2.4 l4 -5`} fill="none" stroke="#ffffff" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
         </g>
       ))}
       {["M90,110 Q140,60 195,72", "M215,72 Q270,90 315,120"].map((path, i) => (
@@ -315,7 +315,7 @@ function InfluencerScene() {
           <animateMotion dur="2.6s" begin={`${i * 0.6}s`} repeatCount="indefinite" path={path} />
         </circle>
       ))}
-      <text x="200" y="175" textAnchor="middle" fill="rgb(var(--color-slate))" style={{ font: "600 12px sans-serif", opacity: 0, animation: "cardFadeUp 0.5s ease-out 1s forwards" }}>
+      <text x="200" y="175" textAnchor="middle" fill="rgba(255,255,255,0.78)" style={{ font: "600 12px sans-serif", opacity: 0, animation: "cardFadeUp 0.5s ease-out 1s forwards" }}>
         1.8M combined reach
       </text>
     </>

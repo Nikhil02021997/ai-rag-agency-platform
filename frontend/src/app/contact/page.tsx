@@ -6,15 +6,14 @@ import SuccessCheck from "@/components/SuccessCheck";
 type Status = "idle" | "submitting" | "success" | "error";
 
 const SERVICES = [
-  "Social Media Management",
-  "Content Creation",
-  "Performance Marketing (Ads)",
-  "Website Services",
+  "Digital marketing & growth",
+  "Google & Meta Ads",
+  "Website Creation & Maintenance",
   "SEO",
-  "Branding",
-  "Email & WhatsApp Marketing",
   "Influencer Marketing",
-  "Analytics & Reporting",
+  "AI & RAG systems",
+  "Web & product development",
+  "Data & analytics",
   "Not sure yet",
 ];
 
