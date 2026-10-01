@@ -30,7 +30,11 @@ def main():
     print(f"Chunked {len(doc_files)} document(s) into {len(chunks)} chunks.")
     print("Embedding chunks with Ollama...")
 
-    embeddings = embed_batch([c["text"] for c in chunks])
+    try:
+        embeddings = embed_batch([c["text"] for c in chunks])
+    except Exception as e:
+        sys.exit(f"Embedding failed ({type(e).__name__}: {e}).\n"
+                 f"Is Ollama running, and have you run: ollama pull {settings.OLLAMA_EMBED_MODEL} ?")
     for chunk, vector in zip(chunks, embeddings):
         chunk["embedding"] = vector
 

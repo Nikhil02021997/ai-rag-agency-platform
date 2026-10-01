@@ -2,6 +2,9 @@
 
 import { useEffect, useRef, useState, type FormEvent } from "react";
 
+// Empty in production (same-origin, nginx proxies /api). Set NEXT_PUBLIC_API_URL for local dev.
+const API_BASE = process.env.NEXT_PUBLIC_API_URL ?? "";
+
 type Message = {
   role: "user" | "assistant";
   content: string;
@@ -38,7 +41,7 @@ export default function ChatWidget() {
     setLoading(true);
 
     try {
-      const res = await fetch("/api/chat", {
+      const res = await fetch(`${API_BASE}/api/chat`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ message: question, history }),

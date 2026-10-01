@@ -42,8 +42,8 @@ const WORK_LINKS = [
 // lists direct channels instead of repeating it.
 const CONTACT_LINKS = [
   { href: "https://wa.me/919217122561", label: "WhatsApp us", blurb: "Fastest reply, +91 92171 22561" },
-  { href: "mailto:enquiries@nisuvmarketing.com", label: "New enquiries", blurb: "enquiries@nisuvmarketing.com" },
-  { href: "mailto:support@nisuvmarketing.com", label: "Existing clients", blurb: "support@nisuvmarketing.com" },
+  { href: "https://wa.me/917982842348", label: "WhatsApp us (2nd number)", blurb: "Either number works, +91 79828 42348" },
+  { href: "mailto:enquiries@nisuvmarketing.com", label: "Email us", blurb: "enquiries@nisuvmarketing.com" },
 ];
 
 function MenuLink({ href, className, onClick, children }: { href: string; className?: string; onClick?: () => void; children: React.ReactNode }) {

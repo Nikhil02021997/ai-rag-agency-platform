@@ -31,7 +31,8 @@ data/processed/*
 
 # Secrets
 *.pem
-*.keynode_modules/
+*.key
+node_modules/
 .env
 node_modules/
 .env

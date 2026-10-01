@@ -13,13 +13,16 @@ class Settings(BaseSettings):
     OLLAMA_CHAT_MODEL: str = "llama3.2"
     OLLAMA_EMBED_MODEL: str = "nomic-embed-text"
 
-    RAG_TOP_K: int = 4
+    RAG_TOP_K: int = 5
+
+    # comma-separated, e.g. https://nisuvmarketing.com,https://www.nisuvmarketing.com
+    CORS_ORIGINS: str = ""
 
     SMTP_HOST: str = ""
     SMTP_PORT: int = 587
     SMTP_USER: str = ""
     SMTP_PASSWORD: str = ""
-    CONTACT_TO_EMAIL: str = ""
+    CONTACT_TO_EMAIL: str = "enquiries@nisuvmarketing.com"
 
     PROJECT_ROOT: Path = Path(__file__).resolve().parents[3]
 
@@ -36,7 +39,8 @@ class Settings(BaseSettings):
         return self.PROCESSED_DIR / "knowledge_base.json"
 
     class Config:
-        env_file = ".env"
+        # absolute path, so it works no matter which folder uvicorn is started from
+        env_file = str(Path(__file__).resolve().parents[3] / ".env")
         extra = "ignore"
 
 

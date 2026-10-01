@@ -48,6 +48,12 @@ export default function Footer() {
                   enquiries@nisuvmarketing.com
                 </a>
               </li>
+              <li>
+                <a href="https://wa.me/919217122561" className="transition-colors hover:text-paper">+91 92171 22561</a>
+              </li>
+              <li>
+                <a href="https://wa.me/917982842348" className="transition-colors hover:text-paper">+91 79828 42348</a>
+              </li>
               <li>nisuvmarketing.com</li>
             </ul>
           </div>

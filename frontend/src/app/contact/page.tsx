@@ -3,6 +3,9 @@
 import { useState, type FormEvent } from "react";
 import SuccessCheck from "@/components/SuccessCheck";
 
+// Empty in production (same-origin, nginx proxies /api). Set NEXT_PUBLIC_API_URL for local dev.
+const API_BASE = process.env.NEXT_PUBLIC_API_URL ?? "";
+
 type Status = "idle" | "submitting" | "success" | "error";
 
 const SERVICES = [
@@ -35,7 +38,7 @@ export default function ContactPage() {
     };
 
     try {
-      const res = await fetch("/api/contact", {
+      const res = await fetch(`${API_BASE}/api/contact`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
@@ -64,6 +67,12 @@ export default function ContactPage() {
               <a href="mailto:enquiries@nisuvmarketing.com" className="text-paper transition-colors hover:text-teal">
                 enquiries@nisuvmarketing.com
               </a>
+            </p>
+            <p>
+              WhatsApp / call:{" "}
+              <a href="https://wa.me/919217122561" className="text-paper transition-colors hover:text-teal">+91 92171 22561</a>
+              {" "}or{" "}
+              <a href="https://wa.me/917982842348" className="text-paper transition-colors hover:text-teal">+91 79828 42348</a>
             </p>
             <p>Based in India. Working with clients everywhere.</p>
           </div>

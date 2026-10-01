@@ -29,6 +29,9 @@ jobs:
 
       - run: npm run build
         working-directory: frontend
+        env:
+          # Public URL of your backend server. Replace with your Cloudflare Worker URL (see cloudflare-worker/README.md).
+          NEXT_PUBLIC_API_URL: https://nisuv-chatbot.nikhilvashistha2297.workers.dev
 
       - uses: actions/configure-pages@v5
 

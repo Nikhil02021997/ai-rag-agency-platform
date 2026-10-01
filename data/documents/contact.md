@@ -1,7 +1,7 @@
-The best way to reach NISUV Marketing is over WhatsApp or email.
+How to contact NISUV Marketing: email enquiries@nisuvmarketing.com. This is the only email address for NISUV Marketing and it is used for new business, quotes, client questions, and support.
 
-WhatsApp: message +91 92171 22561 at https://wa.me/919217122561, or +91 79828 42348 at https://wa.me/917982842348.
+NISUV Marketing WhatsApp and phone: +91 92171 22561 (https://wa.me/919217122561) and +91 79828 42348 (https://wa.me/917982842348). Either number connects directly to the team, so for a quick response message or call whichever is convenient.
 
-Email: enquiries@nisuvmarketing.com for new business and client questions, or support@nisuvmarketing.com for existing client support.
+To request a quote, fill in the Get a Quote form on the contact page (name, email, phone or WhatsApp, service of interest, optional budget, and project details). The team replies with next steps and a clear quote, usually within a couple of business days.
 
-Reaching out on WhatsApp usually gets the fastest response, and either number connects directly to the team.
+NISUV Marketing is based in India and works with clients everywhere. Website: nisuvmarketing.com.
