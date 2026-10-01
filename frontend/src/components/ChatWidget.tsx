@@ -65,7 +65,7 @@ export default function ChatWidget() {
   return (
     <div className="fixed bottom-6 right-6 z-50">
       {open && (
-        <div className="mb-4 flex h-[32rem] w-[22rem] flex-col overflow-hidden rounded-2xl border border-line bg-ink-raised shadow-2xl sm:w-96">
+        <div className="mb-4 flex h-[32rem] max-h-[calc(100dvh-8rem)] w-[22rem] max-w-[calc(100vw-3rem)] flex-col overflow-hidden rounded-2xl border border-line bg-ink-raised shadow-2xl sm:w-96">
           <div className="flex items-center justify-between border-b border-line px-5 py-4">
             <div>
               <p className="font-display text-sm font-semibold text-paper">Ask NISUV Marketing</p>
@@ -77,7 +77,7 @@ export default function ChatWidget() {
                 type="button"
                 onClick={() => setOpen(false)}
                 aria-label="Close chat"
-                className="px-1 text-slate transition-colors hover:text-paper"
+                className="-m-1 p-2 text-slate transition-colors hover:text-paper"
               >
                 ✕
               </button>
@@ -88,7 +88,7 @@ export default function ChatWidget() {
             {messages.map((m, i) => (
               <div key={i} className={`group flex flex-col ${m.role === "user" ? "items-end" : "items-start"}`}>
                 <div
-                  className={`max-w-[85%] rounded-xl px-4 py-2.5 text-sm leading-relaxed ${
+                  className={`max-w-[85%] break-words rounded-xl px-4 py-2.5 text-sm leading-relaxed ${
                     m.role === "user"
                       ? "bg-coral text-ink"
                       : "border border-line bg-ink text-paper"
@@ -115,12 +115,12 @@ export default function ChatWidget() {
               value={input}
               onChange={(e) => setInput(e.target.value)}
               placeholder="Ask a question…"
-              className="flex-1 rounded-full border border-line bg-ink px-4 py-2.5 text-sm text-paper outline-none transition-colors focus:border-teal"
+              className="min-w-0 flex-1 rounded-full border border-line bg-ink px-4 py-2.5 text-sm text-paper outline-none transition-colors focus:border-teal"
             />
             <button
               type="submit"
               disabled={loading || !input.trim()}
-              className="btn-bounce rounded-full bg-coral px-4 py-2.5 text-sm font-medium text-ink hover:bg-coral-dim disabled:opacity-50"
+              className="btn-bounce shrink-0 rounded-full bg-coral px-4 py-2.5 text-sm font-medium text-ink hover:bg-coral-dim disabled:opacity-50"
             >
               Send
             </button>
@@ -159,7 +159,7 @@ function CopyButton({ text }: { text: string }) {
       type="button"
       onClick={handleCopy}
       aria-label={copied ? "Copied" : "Copy message"}
-      className="mt-1 flex items-center gap-1 px-1 text-xs text-slate opacity-0 transition-opacity duration-150 hover:text-paper group-hover:opacity-100"
+      className="mt-1 flex items-center gap-1 px-1 text-xs text-slate opacity-0 transition-opacity duration-150 hover:text-paper group-hover:opacity-100 [@media(hover:none)]:opacity-100"
     >
       <svg width="13" height="13" viewBox="0 0 16 16" fill="none">
         <rect
@@ -217,7 +217,7 @@ function ClearChatButton({ onClear }: { onClear: () => void }) {
       onClick={handleClick}
       aria-label="Clear conversation"
       title="Clear conversation"
-      className="px-1 text-slate transition-colors hover:text-coral"
+      className="-m-1 p-2 text-slate transition-colors hover:text-coral"
     >
       <svg width="15" height="15" viewBox="0 0 16 16" fill="none">
         <line x1="3" y1="5" x2="13" y2="5" className="stroke-current" strokeWidth="1.4" strokeLinecap="round" />

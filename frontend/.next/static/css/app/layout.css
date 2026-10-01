@@ -712,6 +712,27 @@ video {
   html {
     scroll-padding-top: 6rem;
     scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+         text-size-adjust: 100%;
+  }
+
+  /* Safety net: nothing may ever make the page scroll sideways on a phone.
+     `clip` (unlike `hidden`) keeps the sticky header working. */
+  html,
+  body {
+    overflow-x: clip;
+    max-width: 100%;
+  }
+
+  /* iOS Safari zooms the whole page when a field with text smaller than 16px
+     is focused. Use 16px for form fields on phones only; desktop is unchanged. */
+  @media (max-width: 767px) {
+    input:not([type="checkbox"]):not([type="radio"]),
+    select,
+    textarea {
+      font-size: 16px !important;
+    }
   }
 
   * {
@@ -926,6 +947,9 @@ video {
 .order-2 {
   order: 2;
 }
+.-m-1 {
+  margin: -0.25rem;
+}
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
@@ -1047,6 +1071,12 @@ video {
 .max-h-\[70vh\] {
   max-height: 70vh;
 }
+.max-h-\[75vh\] {
+  max-height: 75vh;
+}
+.max-h-\[calc\(100dvh-8rem\)\] {
+  max-height: calc(100dvh - 8rem);
+}
 .min-h-\[70vh\] {
   min-height: 70vh;
 }
@@ -1093,6 +1123,9 @@ video {
 .w-full {
   width: 100%;
 }
+.min-w-0 {
+  min-width: 0px;
+}
 .max-w-\[85\%\] {
   max-width: 85%;
 }
@@ -1113,6 +1146,9 @@ video {
 }
 .max-w-xs {
   max-width: 20rem;
+}
+.max-w-\[calc\(100vw-3rem\)\] {
+  max-width: calc(100vw - 3rem);
 }
 .flex-1 {
   flex: 1 1 0%;
@@ -1282,6 +1318,15 @@ video {
 }
 .overflow-y-auto {
   overflow-y: auto;
+}
+.overscroll-contain {
+  overscroll-behavior: contain;
+}
+.whitespace-nowrap {
+  white-space: nowrap;
+}
+.break-words {
+  overflow-wrap: break-word;
 }
 .rounded-2xl {
   border-radius: 1rem;
@@ -1505,6 +1550,9 @@ video {
 }
 .p-8 {
   padding: 2rem;
+}
+.p-2 {
+  padding: 0.5rem;
 }
 .px-1 {
   padding-left: 0.25rem;
@@ -2107,6 +2155,21 @@ video {
   }
 }
 
+@media (min-width: 1280px) {
+
+  .xl\:fixed {
+    position: fixed;
+  }
+
+  .xl\:right-5 {
+    right: 1.25rem;
+  }
+
+  .xl\:top-5 {
+    top: 1.25rem;
+  }
+}
+
 .\[\&_svg\]\:h-5 svg {
   height: 1.25rem;
 }
@@ -2121,4 +2184,11 @@ video {
 
 .\[\&_svg\]\:w-6 svg {
   width: 1.5rem;
+}
+
+@media(hover:none) {
+
+  .\[\@media\(hover\:none\)\]\:opacity-100 {
+    opacity: 1;
+  }
 }

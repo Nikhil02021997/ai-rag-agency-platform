@@ -71,7 +71,7 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 border-b border-line bg-ink/90 backdrop-blur">
       <div className="mx-auto flex max-w-content items-center justify-between px-6 py-5">
-        <Link href="/">
+        <Link href="/" className="shrink-0 whitespace-nowrap">
           <Logo />
         </Link>
 
@@ -168,7 +168,7 @@ export default function Header() {
           <ThemeToggle />
         </nav>
 
-        <div className="flex items-center gap-1 md:hidden">
+        <div className="flex shrink-0 items-center gap-1 md:hidden">
           <ThemeToggle />
           <button
           type="button"
@@ -184,7 +184,7 @@ export default function Header() {
       </div>
 
       {open && (
-        <nav className="flex flex-col gap-1 border-t border-line px-6 pb-6 md:hidden">
+        <nav className="flex max-h-[75vh] flex-col gap-1 overflow-y-auto overscroll-contain border-t border-line px-6 pb-6 md:hidden">
           {NAV_LINKS.map((link) => {
             const isServices = link.label === "Services";
             const insightLinks = INSIGHT_MENUS[link.href];
@@ -220,7 +220,7 @@ export default function Header() {
                     onClick={() => setMobileOpenMenu(isMobileOpen ? null : link.href)}
                     aria-expanded={isMobileOpen}
                     aria-label={`Toggle ${link.label} list`}
-                    className="p-3"
+                    className="shrink-0 p-3"
                   >
                     <svg
                       viewBox="0 0 12 12"

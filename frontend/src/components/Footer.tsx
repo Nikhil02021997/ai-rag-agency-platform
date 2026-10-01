@@ -44,7 +44,7 @@ export default function Footer() {
             <p className="text-sm font-medium text-paper">Get in touch</p>
             <ul className="mt-4 space-y-3 text-sm text-slate">
               <li>
-                <a href="mailto:enquiries@nisuvmarketing.com" className="transition-colors hover:text-paper">
+                <a href="mailto:enquiries@nisuvmarketing.com" className="break-words transition-colors hover:text-paper">
                   enquiries@nisuvmarketing.com
                 </a>
               </li>

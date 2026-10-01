@@ -56,6 +56,7 @@ export default function ServicesAccordion() {
           <li
             key={service.title}
             onMouseEnter={() => setActive(i)}
+            onClick={() => setActive(i)}
             className="cursor-default border-b border-line py-6 transition-colors"
           >
             <span

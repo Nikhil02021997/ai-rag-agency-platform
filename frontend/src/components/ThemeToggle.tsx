@@ -18,7 +18,7 @@ export default function ThemeToggle() {
   }, [theme]);
 
   if (!theme) {
-    return <div className="h-9 w-9" aria-hidden />;
+    return <div className="h-9 w-9 shrink-0" aria-hidden />;
   }
 
   const isLight = theme === "light";
@@ -30,7 +30,7 @@ export default function ThemeToggle() {
       title={isLight ? "Switch to dark mode" : "Switch to light mode"}
       aria-label={isLight ? "Switch to dark mode" : "Switch to light mode"}
       aria-pressed={isLight}
-      className="fab-bounce fixed right-5 top-5 z-50 flex h-9 w-9 items-center justify-center rounded-full border border-line bg-ink-raised hover:border-teal"
+      className="fab-bounce z-50 flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-line bg-ink-raised hover:border-teal xl:fixed xl:right-5 xl:top-5"
     >
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" overflow="visible">
         <defs>

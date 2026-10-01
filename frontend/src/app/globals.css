@@ -35,6 +35,26 @@
   html {
     scroll-padding-top: 6rem;
     scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+
+  /* Safety net: nothing may ever make the page scroll sideways on a phone.
+     `clip` (unlike `hidden`) keeps the sticky header working. */
+  html,
+  body {
+    overflow-x: clip;
+    max-width: 100%;
+  }
+
+  /* iOS Safari zooms the whole page when a field with text smaller than 16px
+     is focused. Use 16px for form fields on phones only; desktop is unchanged. */
+  @media (max-width: 767px) {
+    input:not([type="checkbox"]):not([type="radio"]),
+    select,
+    textarea {
+      font-size: 16px !important;
+    }
   }
 
   * {

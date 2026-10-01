@@ -1,4 +1,4 @@
-// File: /Users/nikhilvashistha/Downloads/ai-rag-agency-platform 11/frontend/src/app/about/page.tsx
+// File: /Users/nikhilvashistha/Downloads/ai-rag-agency-platform 3/frontend/src/app/about/page.tsx
 import * as entry from '../../../../src/app/about/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 

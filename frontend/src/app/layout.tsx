@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Space_Grotesk, Inter } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
@@ -20,6 +20,12 @@ const inter = Inter({
   variable: "--font-inter",
   display: "swap",
 });
+
+// Explicit viewport so every phone renders at its real width (no zoomed-out desktop layout).
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://nisuvmarketing.com"),
