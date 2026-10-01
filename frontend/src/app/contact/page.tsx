@@ -62,8 +62,8 @@ export default function ContactPage() {
           </p>
           <div className="mt-10 space-y-1 text-sm text-slate">
             <p>
-              <a href="mailto:hello@creativenetworks.in" className="text-paper transition-colors hover:text-teal">
-                hello@creativenetworks.in
+              <a href="mailto:enquiries@nisuvmarketing.com" className="text-paper transition-colors hover:text-teal">
+                enquiries@nisuvmarketing.com
               </a>
             </p>
             <p>Based in India. Working with clients everywhere.</p>

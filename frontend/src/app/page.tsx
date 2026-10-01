@@ -2,6 +2,7 @@ import Link from "next/link";
 import ServicesAccordion from "@/components/ServicesAccordion";
 import ServiceIcon, { serviceKeyFromTitle } from "@/components/ServiceIcon";
 import ServiceCardMedia from "@/components/ServiceCardMedia";
+import OfficeHero from "@/components/OfficeHero";
 
 const SERVICES = [
   {
@@ -122,7 +123,7 @@ export default function HomePage() {
             </div>
           </div>
 
-          <NetworkGraphic />
+          <OfficeHero />
         </div>
       </section>
 
@@ -230,63 +231,5 @@ export default function HomePage() {
         </div>
       </section>
     </>
-  );
-}
-
-/**
- * Subtle animated node/connection graphic — a nod to "network" without
- * leaning on a generic particle-field background.
- */
-function NetworkGraphic() {
-  const nodes = [
-    { x: 60, y: 40, r: 5, fill: "coral" },
-    { x: 180, y: 30, r: 4, fill: "teal" },
-    { x: 260, y: 100, r: 6, fill: "coral" },
-    { x: 140, y: 140, r: 4, fill: "teal" },
-    { x: 40, y: 190, r: 5, fill: "teal" },
-    { x: 220, y: 210, r: 4, fill: "coral" },
-  ];
-  const edges = [
-    [0, 1],
-    [1, 2],
-    [1, 3],
-    [3, 0],
-    [3, 4],
-    [2, 5],
-    [3, 5],
-  ];
-
-  return (
-    <div className="mx-auto hidden w-full max-w-sm md:block">
-      <svg viewBox="0 0 300 250" className="w-full" role="presentation">
-        {edges.map(([a, b], i) => (
-          <line
-            key={i}
-            x1={nodes[a].x}
-            y1={nodes[a].y}
-            x2={nodes[b].x}
-            y2={nodes[b].y}
-            stroke="rgb(var(--color-line))"
-            strokeWidth="1"
-          />
-        ))}
-        {nodes.map((node, i) => (
-          <circle
-            key={i}
-            cx={node.x}
-            cy={node.y}
-            r={node.r}
-            className={node.fill === "coral" ? "fill-coral" : "fill-teal"}
-          >
-            <animate
-              attributeName="opacity"
-              values="0.6;1;0.6"
-              dur={`${3 + i}s`}
-              repeatCount="indefinite"
-            />
-          </circle>
-        ))}
-      </svg>
-    </div>
   );
 }

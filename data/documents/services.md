@@ -1,23 +1,19 @@
-cat > /Users/nikhilvashistha/Downloads/python/Projects/ai-rag-agency-platform/data/documents/services.md << 'EOF'
-Creative Networks offers nine core service areas: social media management, content creation, performance marketing (ads), website services, SEO, branding, email and WhatsApp marketing, influencer marketing, and analytics and reporting.
+NISUV Marketing offers eight core service areas: digital marketing and growth, Google and Meta ads, website creation and maintenance, SEO, influencer marketing, AI and RAG systems, web and product development, and data and analytics.
 
-Social media management includes Instagram management, Facebook management, LinkedIn management, content calendar planning, daily posting, and community management such as replying to comments and DMs.
+Digital marketing and growth covers paid acquisition, SEO, and lifecycle campaigns run against real growth targets rather than vanity metrics — including paid search and social campaigns, organic content strategy, email and lifecycle marketing, and conversion rate optimization.
 
-Content creation includes graphic design, reels and video editing, product photography, brand creatives, and copywriting and captions.
+Google and Meta ads covers paid search and paid social campaigns built around a real ROAS target and optimized weekly instead of set-and-forget — including Google Search and Shopping campaigns, Meta (Facebook and Instagram) ad campaigns, audience targeting and retargeting funnels, and creative testing with weekly bid optimization.
 
-Performance marketing covers Meta Ads across Facebook and Instagram, Google Ads, YouTube Ads, and LinkedIn Ads, along with lead generation campaigns and e-commerce sales campaigns.
+Website creation and maintenance covers new websites built fast and accessible, then kept online, secure, and up to date rather than abandoned after launch — including new website design and build, hosting with uptime monitoring and backups, security patches and version updates, and ongoing content edits and small fixes.
 
-Website services include website development, landing page creation, website maintenance, and conversion optimization.
+SEO covers technical SEO, on-page optimization, and content strategy built to move real rankings and organic traffic — including technical SEO audits and fixes, keyword research and content strategy, on-page and site structure optimization, and monthly rank and traffic reporting.
 
-SEO services include website SEO, local SEO through Google Business Profile, keyword research, blog writing, and backlink building.
+Influencer marketing covers creator partnerships matched to your audience and measured on real engagement and conversions rather than follower counts — including creator sourcing and vetting, campaign briefs and content collaboration, micro and macro-influencer partnerships, and engagement and conversion reporting.
 
-Branding services include logo design, brand identity creation, brand guidelines, packaging design, and corporate presentations.
+AI and RAG systems covers retrieval-augmented AI built on your own data, so answers come from your actual documents and product rather than a generic model guessing — including support and internal-search chatbots, document and knowledge-base retrieval, custom prompt and evaluation pipelines, and integration into your existing product or site.
 
-Email and WhatsApp marketing includes email campaigns, newsletter design, automated email sequences, and WhatsApp marketing campaigns.
+Web and product development covers fast, accessible sites and web apps built to load quickly and hold up under real traffic — including marketing websites, web applications and internal tools, e-commerce builds, and ongoing maintenance and support.
 
-Influencer marketing includes influencer sourcing, campaign management, product seeding, and working with UGC (user generated content) creators.
+Data and analytics covers tracking and dashboards that show what's actually working, so the next decision is based on a number rather than a hunch — including analytics setup and event tracking, custom reporting dashboards, attribution and funnel analysis, and monthly performance reviews.
 
-Analytics and reporting includes monthly reports, ad performance reports, website analytics, and ROI tracking.
-
-Most clients combine several of these services rather than using just one, since social media, ads, content, and website work all perform better when run together as one connected strategy.
-EOF
+Most clients combine several of these services rather than using just one, since marketing, ads, AI, website work, and data all perform better when run together as one connected strategy.

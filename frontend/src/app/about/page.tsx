@@ -29,7 +29,7 @@ export default function AboutPage() {
   return (
     <>
       <section id="team" className="mx-auto max-w-content px-6 pb-16 pt-16 md:pb-20 md:pt-24">
-        <div className="grid items-center gap-10 md:grid-cols-[1.2fr_1fr] md:gap-16">
+        <div className="grid items-center gap-10 md:grid-cols-[1fr_1fr] md:gap-14">
           <div>
             <h1 className="max-w-xl text-4xl font-semibold leading-[1.1] tracking-tight md:text-5xl">
               We started NISUV Marketing because most agencies treat AI as a feature, not a foundation.

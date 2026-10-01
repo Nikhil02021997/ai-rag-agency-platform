@@ -8,6 +8,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://creativenetworks.in/sitemap.xml",
+    sitemap: "https://nisuvmarketing.com/sitemap.xml",
   };
 }

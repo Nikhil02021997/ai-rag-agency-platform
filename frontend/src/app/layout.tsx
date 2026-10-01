@@ -22,7 +22,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://creativenetworks.in"),
+  metadataBase: new URL("https://nisuvmarketing.com"),
   title: {
     default: "NISUV Marketing — AI & Digital Growth Agency",
     template: "%s | NISUV Marketing",
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     title: "NISUV Marketing — AI & Digital Growth Agency",
     description:
       "AI-powered digital experiences, growth campaigns, and web products.",
-    url: "https://creativenetworks.in",
+    url: "https://nisuvmarketing.com",
     siteName: "NISUV Marketing",
     locale: "en_IN",
     type: "website",

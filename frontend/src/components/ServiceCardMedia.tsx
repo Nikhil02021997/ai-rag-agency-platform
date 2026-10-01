@@ -61,7 +61,7 @@ const LABELS: Record<Variant, string> = {
 };
 
 export default function ServiceCardMedia({ variant }: { variant: Variant }) {
-  const [videoFailed, setVideoFailed] = useState(false);
+  const [videoPlaying, setVideoPlaying] = useState(false);
 
   return (
     <div className="relative aspect-[16/10] w-full overflow-hidden rounded-xl border border-line bg-ink">
@@ -77,39 +77,39 @@ export default function ServiceCardMedia({ variant }: { variant: Variant }) {
         @keyframes cardBlinkRec { 0%,100% { opacity: 1; } 50% { opacity: 0.35; } }
       `}</style>
 
-      {/* Real video layer — plays if a file exists at VIDEO_SOURCES[variant] */}
-      {!videoFailed && (
-        <video
-          key={variant}
-          className="absolute inset-0 h-full w-full object-cover"
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="auto"
-          poster={VIDEO_POSTERS[variant]}
-          onError={() => setVideoFailed(true)}
-        >
-          <source src={VIDEO_SOURCES[variant]} type="video/mp4" />
-        </video>
-      )}
+      {/* Animated SVG scene — the reliable default. Always mounted immediately
+          so there is never a blank gap while a real video (if any) loads. */}
+      <div className="absolute inset-0 bg-gradient-to-br from-ink-raised to-ink">
+        <svg viewBox="0 0 400 220" className="absolute inset-0 h-full w-full opacity-90" preserveAspectRatio="xMidYMid slice">
+          {variant === "ai-rag" && <AiRagScene />}
+          {variant === "marketing" && <MarketingScene />}
+          {variant === "web-dev" && <WebDevScene />}
+          {variant === "analytics" && <AnalyticsScene />}
+          {variant === "google-meta-ads" && <AdsScene />}
+          {variant === "website-creation-maintenance" && <WebcareScene />}
+          {variant === "seo" && <SeoScene />}
+          {variant === "influencer-marketing" && <InfluencerScene />}
+        </svg>
+      </div>
 
-      {/* Animated fallback scene — only shown if the real video file is missing
-          or fails to load, so it never covers a working video */}
-      {videoFailed && (
-        <div className="absolute inset-0 bg-gradient-to-br from-ink-raised to-ink">
-          <svg viewBox="0 0 400 220" className="absolute inset-0 h-full w-full opacity-90" preserveAspectRatio="xMidYMid slice">
-            {variant === "ai-rag" && <AiRagScene />}
-            {variant === "marketing" && <MarketingScene />}
-            {variant === "web-dev" && <WebDevScene />}
-            {variant === "analytics" && <AnalyticsScene />}
-            {variant === "google-meta-ads" && <AdsScene />}
-            {variant === "website-creation-maintenance" && <WebcareScene />}
-            {variant === "seo" && <SeoScene />}
-            {variant === "influencer-marketing" && <InfluencerScene />}
-          </svg>
-        </div>
-      )}
+      {/* Real video layer — drop a real .mp4 at VIDEO_SOURCES[variant] and it
+          fades in on top only once actually playing; the SVG scene above
+          keeps showing underneath the whole time as a safe fallback. */}
+      <video
+        key={variant}
+        className="absolute inset-0 h-full w-full object-cover transition-opacity duration-300"
+        style={{ opacity: videoPlaying ? 1 : 0 }}
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="auto"
+        poster={VIDEO_POSTERS[variant]}
+        onPlaying={() => setVideoPlaying(true)}
+        onError={() => setVideoPlaying(false)}
+      >
+        <source src={VIDEO_SOURCES[variant]} type="video/mp4" />
+      </video>
 
       <div className="absolute inset-0 bg-gradient-to-t from-ink/70 via-transparent to-transparent" />
 

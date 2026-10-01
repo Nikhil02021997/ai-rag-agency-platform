@@ -44,11 +44,11 @@ export default function Footer() {
             <p className="text-sm font-medium text-paper">Get in touch</p>
             <ul className="mt-4 space-y-3 text-sm text-slate">
               <li>
-                <a href="mailto:hello@creativenetworks.in" className="transition-colors hover:text-paper">
-                  hello@creativenetworks.in
+                <a href="mailto:enquiries@nisuvmarketing.com" className="transition-colors hover:text-paper">
+                  enquiries@nisuvmarketing.com
                 </a>
               </li>
-              <li>creativenetworks.in</li>
+              <li>nisuvmarketing.com</li>
             </ul>
           </div>
         </div>
