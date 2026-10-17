@@ -1,0 +1,47 @@
+/**
+ * Shared glyph library (24×24-ish, centred on 0,0) used by the service diagrams and the
+ * service-page feature cards. Strokes/fills come from the surrounding CSS (.gly / .sg-icon).
+ */
+export const GLYPHS: Record<string, string> = {
+  data: '<ellipse cx="0" cy="-6" rx="8" ry="3.2"/><path d="M-8 -6v12c0 1.8 3.6 3.2 8 3.2s8-1.4 8-3.2V-6M-8 0c0 1.8 3.6 3.2 8 3.2s8-1.4 8-3.2"/>',
+  ai: '<rect x="-8" y="-8" width="16" height="16" rx="3"/><path d="M-4 -12v4M4 -12v4M-4 8v4M4 8v4M-12 -4h4M-12 4h4M8 -4h4M8 4h4"/><text y="4">AI</text>',
+  sites: '<rect x="-11" y="-9" width="22" height="18" rx="2.5"/><path d="M-11 -4h22M-6 2h8M-6 5.5h12"/><circle class="f" cx="-7.5" cy="-6.5" r=".9"/><circle class="f" cx="-4.5" cy="-6.5" r=".9"/>',
+  dev: '<text y="4.5" style="font-size:14px">&lt;/&gt;</text>',
+  growth: '<path d="M-10 6l6-7 5 4 8-9M3 -8h6v6"/>',
+  ads: '<circle r="10"/><circle r="5.5"/><circle class="f" r="1.8"/>',
+  seo: '<circle cx="-2" cy="-2" r="7"/><path d="M3 3l7 7"/>',
+  creators: '<circle cx="-5" cy="-4" r="3.5"/><circle cx="6" cy="-2" r="3"/><path d="M-11 8c0-5 3-7 6-7s6 2 6 7M2 8c0-4 2-5.5 4-5.5s5 1.5 5 5.5"/>',
+  mail: '<rect x="-11" y="-8" width="22" height="16" rx="2.5"/><path d="M-11 -6l11 8 11 -8"/>',
+  funnel: '<path d="M-11 -9h22l-8 10v8l-6 3v-11z"/>',
+  cart: '<path d="M-11 -9h4l3 12h11l3-8H-6"/><circle class="f" cx="-2" cy="8" r="1.4"/><circle class="f" cx="7" cy="8" r="1.4"/>',
+  shield: '<path d="M0 -11l10 4v6c0 6-4 9-10 12-6-3-10-6-10-12v-6z"/><path d="M-4 0l3 3 5-6"/>',
+  server: '<rect x="-10" y="-10" width="20" height="8" rx="2"/><rect x="-10" y="2" width="20" height="8" rx="2"/><circle class="f" cx="-6" cy="-6" r="1"/><circle class="f" cx="-6" cy="6" r="1"/>',
+  backup: '<path d="M-6 5a5 5 0 010-10 7 7 0 0113 1 4.5 4.5 0 01-1 9z"/><path d="M0 8V0M-3 3l3-3 3 3"/>',
+  edit: '<path d="M-9 9l1-5 10-10 4 4-10 10z"/><path d="M-1 -3l4 4"/>',
+  chart: '<path d="M-10 10h20M-7 10V2M-2 10V-4M3 10V0M8 10V-8"/>',
+  pie: '<circle r="9"/><path d="M0 -9V0h9"/>',
+  megaphone: '<path d="M-10 -3v6h4l8 5V-8l-8 5z"/><path d="M8 -3c2 1 2 5 0 6"/>',
+  link: '<path d="M-3 3l6-6"/><path d="M-5 -1l-3 3a4 4 0 006 6l3-3"/><path d="M5 1l3-3a4 4 0 00-6-6l-3 3"/>',
+  doc: '<path d="M-7 -11h9l6 6v16h-15z"/><path d="M2 -11v6h6M-3 1h8M-3 5h8"/>',
+  chat: '<path d="M-10 -8h20v13h-9l-5 5v-5h-6z"/><circle class="f" cx="-4" cy="-1.5" r="1"/><circle class="f" cx="0" cy="-1.5" r="1"/><circle class="f" cx="4" cy="-1.5" r="1"/>',
+  gauge: '<path d="M-10 6a10 10 0 0120 0"/><path d="M0 6l5-7"/><circle class="f" cx="0" cy="6" r="1.4"/>',
+  bolt: '<path d="M2 -11l-9 13h7l-2 9 9-13h-7z"/>',
+  layers: '<path d="M0 -9l10 5-10 5-10-5z"/><path d="M-10 1l10 5 10-5M-10 6l10 5 10-5"/>',
+  lock: '<rect x="-8" y="-2" width="16" height="11" rx="2"/><path d="M-5 -2v-4a5 5 0 0110 0v4"/>',
+  refresh: '<path d="M8 -3A8 8 0 103 7"/><path d="M9 -9v6h-6"/>',
+  check: '<circle r="10"/><path d="M-5 0l4 4 6-8"/>',
+  calendar: '<rect x="-10" y="-8" width="20" height="18" rx="2.5"/><path d="M-10 -2h20M-5 -11v5M5 -11v5"/>',
+  star: '<path d="M0 -10l2.8 6.5 7 .6-5.3 4.6 1.6 6.8L0 4.6l-6.1 3.9 1.6-6.8-5.3-4.6 7-.6z"/>',
+  globe: '<circle r="10"/><path d="M-10 0h20M0 -10c-5 5-5 15 0 20M0 -10c5 5 5 15 0 20"/>',
+  clock: '<circle r="10"/><path d="M0 -5v5l4 3"/>',
+  eye: '<path d="M-11 0c3-6 7-8 11-8s8 2 11 8c-3 6-7 8-11 8s-8-2-11-8z"/><circle r="3"/>',
+  heart: '<path d="M0 9C-12 0-8-9 0-4 8-9 12 0 0 9z"/>',
+  play: '<circle r="10"/><path d="M-3 -5l8 5-8 5z"/>',
+  click: '<path d="M-6 -9l4 18 3-7 7-3z"/>',
+  cube: '<path d="M0 -10l9 5v10l-9 5-9-5V-5z"/><path d="M-9 -5l9 5 9-5M0 0v10"/>',
+  dollar: '<circle r="10"/><text y="4.5">$</text>',
+  target: '<circle r="10"/><circle r="5.5"/><circle class="f" r="1.8"/>',
+  users: '<circle cx="-5" cy="-4" r="3.5"/><circle cx="6" cy="-2" r="3"/><path d="M-11 8c0-5 3-7 6-7s6 2 6 7M2 8c0-4 2-5.5 4-5.5s5 1.5 5 5.5"/>',
+};
+
+export type GlyphKey = keyof typeof GLYPHS;

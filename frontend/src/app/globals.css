@@ -1,0 +1,145 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root,
+  html.dark {
+    --color-ink: 9 9 11;
+    --color-ink-raised: 24 24 27;
+    --color-paper: 245 247 250;
+    --color-slate: 148 163 184;
+    --color-blue: 14 165 233;
+    --color-blue-dim: 2 132 199;
+    --color-violet: 139 92 246;
+    --color-line: 39 39 42;
+    --color-coral: 236 72 153;
+    --color-coral-dim: 219 39 119;
+    --color-teal: 14 165 233;
+  }
+
+  html.light {
+    --color-ink: 247 248 252;
+    --color-ink-raised: 255 255 255;
+    --color-paper: 11 45 91;
+    --color-slate: 90 99 122;
+    --color-blue: 14 165 233;
+    --color-blue-dim: 2 132 199;
+    --color-violet: 139 92 246;
+    --color-line: 222 227 240;
+    --color-coral: 236 72 153;
+    --color-coral-dim: 190 24 93;
+    --color-teal: 2 132 199;
+  }
+
+  html {
+    scroll-padding-top: 6rem;
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+
+  /* Safety net: nothing may ever make the page scroll sideways on a phone.
+     `clip` (unlike `hidden`) keeps the sticky header working. */
+  html,
+  body {
+    overflow-x: clip;
+    max-width: 100%;
+  }
+
+  /* iOS Safari zooms the whole page when a field with text smaller than 16px
+     is focused. Use 16px for form fields on phones only; desktop is unchanged. */
+  @media (max-width: 767px) {
+    input:not([type="checkbox"]):not([type="radio"]),
+    select,
+    textarea {
+      font-size: 16px !important;
+    }
+  }
+
+  * {
+    @apply border-line;
+  }
+
+  body {
+    @apply bg-ink text-paper font-body;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display;
+  }
+}
+
+@layer utilities {
+  /* Smooth, subtle motion for buttons/links/CTAs (no spring overshoot). */
+  .btn-bounce {
+    transition-property: transform, background-color, opacity, box-shadow, color;
+    transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+    transition-duration: 220ms;
+  }
+  .btn-bounce:hover {
+    transform: translateY(-1px);
+  }
+  .btn-bounce:active {
+    transform: translateY(0) scale(0.98);
+    transition-duration: 100ms;
+  }
+
+  /* Round floating buttons (chat, whatsapp, theme toggle) */
+  .fab-bounce {
+    transition-property: transform, background-color, box-shadow, border-color;
+    transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+    transition-duration: 220ms;
+  }
+  .fab-bounce:hover {
+    transform: translateY(-2px) scale(1.04);
+  }
+  .fab-bounce:active {
+    transform: scale(0.97);
+    transition-duration: 100ms;
+  }
+
+  /* Gentle lift for whole clickable cards */
+  .card-bounce {
+    transition-property: transform, border-color, box-shadow;
+    transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+    transition-duration: 280ms;
+  }
+  .card-bounce:hover {
+    transform: translateY(-3px);
+  }
+  .card-bounce:active {
+    transform: translateY(-1px);
+    transition-duration: 100ms;
+  }
+}
+
+/* Clickable columns in the hero office illustration */
+.office-link {
+  cursor: pointer;
+  outline: none;
+}
+.office-hit {
+  fill: #ffffff;
+  fill-opacity: 0;
+  transition: fill-opacity 0.2s ease;
+}
+.office-link:hover .office-hit,
+.office-link:focus-visible .office-hit {
+  fill-opacity: 0.09;
+}
+.office-link:focus-visible .office-hit {
+  stroke: #0ea5e9;
+  stroke-width: 2;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

@@ -1,0 +1,58 @@
+/* Service detail pages: scroll reveals, feature cards, process line, FAQ. */
+.sv-rv{opacity:0;transform:translateY(22px);transition:opacity .7s cubic-bezier(.2,.8,.2,1),transform .7s cubic-bezier(.2,.8,.2,1)}
+.sv-rv.in{opacity:1;transform:none}
+
+.sv-hero-glow{position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background:radial-gradient(60% 50% at 85% 30%,rgb(var(--color-violet)/.16),transparent 70%),
+             radial-gradient(45% 40% at 5% 90%,rgb(var(--color-coral)/.10),transparent 70%)}
+.sv-hero-in{animation:sv-up .8s cubic-bezier(.2,.8,.2,1) both}
+@keyframes sv-up{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+
+.sv-card{position:relative;overflow:hidden;border-radius:1rem;border:1px solid rgb(var(--color-line));background:rgb(var(--color-ink-raised));padding:1.75rem;
+  transition:transform .3s cubic-bezier(.22,1,.36,1),border-color .3s,box-shadow .3s}
+.sv-card:hover{transform:translateY(-4px);border-color:var(--acc);box-shadow:0 14px 40px -18px var(--acc)}
+.sv-icon{display:grid;place-items:center;width:3rem;height:3rem;border-radius:.85rem;background:color-mix(in srgb,var(--acc) 18%,transparent);border:1px solid color-mix(in srgb,var(--acc) 55%,transparent);
+  transition:transform .35s cubic-bezier(.22,1,.36,1)}
+.sv-card:hover .sv-icon{transform:rotate(-6deg) scale(1.08)}
+.sv-icon svg{width:1.6rem;height:1.6rem;fill:none;stroke:rgb(var(--color-paper));stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;overflow:visible}
+.sv-icon svg .f{fill:rgb(var(--color-paper));stroke:none}
+.sv-icon svg text{fill:rgb(var(--color-paper));stroke:none;font-weight:700;font-size:12px;text-anchor:middle;font-family:inherit}
+.sv-pt{position:relative;padding-left:1.25rem}
+.sv-pt::before{content:"";position:absolute;left:0;top:.55em;width:.5rem;height:.5rem;border-radius:2px;transform:rotate(45deg);background:var(--acc);opacity:.85}
+
+/* process */
+.sv-steps{position:relative}
+.sv-steps::before{content:"";position:absolute;left:1.35rem;top:1.5rem;bottom:1.5rem;width:2px;background:repeating-linear-gradient(to bottom,rgb(var(--color-line)) 0 6px,transparent 6px 12px)}
+@media(min-width:900px){.sv-steps::before{left:12%;right:12%;top:1.35rem;bottom:auto;width:auto;height:2px;background:repeating-linear-gradient(to right,rgb(var(--color-line)) 0 6px,transparent 6px 12px)}}
+.sv-num{position:relative;z-index:1;display:grid;place-items:center;width:2.7rem;height:2.7rem;border-radius:999px;font-weight:700;
+  background:rgb(var(--color-ink));border:2px solid var(--acc);color:rgb(var(--color-paper));box-shadow:0 0 0 6px rgb(var(--color-ink))}
+.sv-step:hover .sv-num{background:var(--acc);color:#fff;transform:scale(1.08)}
+.sv-num{transition:transform .3s cubic-bezier(.22,1,.36,1),background .3s}
+.sv-pulse{animation:sv-pulse 2.6s ease-in-out infinite}
+@keyframes sv-pulse{0%,100%{box-shadow:0 0 0 6px rgb(var(--color-ink)),0 0 0 6px transparent}50%{box-shadow:0 0 0 6px rgb(var(--color-ink)),0 0 0 12px color-mix(in srgb,var(--acc) 25%,transparent)}}
+
+/* deliverables */
+.sv-check{display:grid;place-items:center;flex:none;width:1.4rem;height:1.4rem;border-radius:999px;background:rgb(34 197 94/.16);border:1px solid rgb(34 197 94/.6)}
+.sv-check svg{width:.8rem;height:.8rem;fill:none;stroke:#22c55e;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+.sv-del{transition:transform .25s,border-color .25s}
+.sv-del:hover{transform:translateX(4px);border-color:#22c55e}
+
+/* FAQ */
+.sv-faq{border:1px solid rgb(var(--color-line));border-radius:.9rem;background:rgb(var(--color-ink-raised));transition:border-color .25s}
+.sv-faq[open]{border-color:rgb(var(--color-blue)/.7)}
+.sv-faq summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:1.15rem 1.35rem;font-weight:500}
+.sv-faq summary::-webkit-details-marker{display:none}
+.sv-faq summary::after{content:"+";font-size:1.4rem;line-height:1;color:rgb(var(--color-slate));transition:transform .3s}
+.sv-faq[open] summary::after{transform:rotate(45deg)}
+.sv-faq .sv-ans{padding:0 1.35rem 1.2rem;animation:sv-up .4s ease both}
+
+/* related */
+.sv-rel{display:block;border-radius:1rem;border:1px solid rgb(var(--color-line));background:rgb(var(--color-ink-raised));padding:1.4rem;transition:transform .3s cubic-bezier(.22,1,.36,1),border-color .3s}
+.sv-rel:hover{transform:translateY(-3px);border-color:rgb(var(--color-coral))}
+.sv-rel .arr{display:inline-block;transition:transform .3s}
+.sv-rel:hover .arr{transform:translateX(5px)}
+
+@media (prefers-reduced-motion:reduce){
+  .sv-rv{opacity:1;transform:none;transition:none}
+  .sv-hero-in,.sv-pulse,.sv-faq .sv-ans{animation:none}
+}
