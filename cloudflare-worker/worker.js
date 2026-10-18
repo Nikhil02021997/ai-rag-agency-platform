@@ -265,6 +265,7 @@ export default {
     if (request.method === "OPTIONS") return new Response(null, { status: 204, headers: cors(request) });
     const url = new URL(request.url);
     if (url.pathname === "/health") return json(request, { status: "ok" });
+    // QUOTE FORM EMAIL ENDPOINT WILL GO HERE
     if (request.method !== "POST" || !/^\/(api\/)?chat\/?$/.test(url.pathname)) return json(request, { error: "Not found" }, 404);
 
     let body;
