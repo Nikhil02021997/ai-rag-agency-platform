@@ -265,7 +265,71 @@ export default {
     if (request.method === "OPTIONS") return new Response(null, { status: 204, headers: cors(request) });
     const url = new URL(request.url);
     if (url.pathname === "/health") return json(request, { status: "ok" });
-    // QUOTE FORM EMAIL ENDPOINT WILL GO HERE
+
+    if (url.pathname === "/api/quote") {
+      if (request.method !== "POST") {
+        return json(request, { error: "Method not allowed" }, 405);
+      }
+
+      let quote;
+      try {
+        quote = await request.json();
+      } catch {
+        return json(request, { error: "Invalid request" }, 400);
+      }
+
+      const name = String(quote.name || "").trim().slice(0, 150);
+      const email = String(quote.email || "").trim().slice(0, 254);
+      const phone = String(quote.phone || "").trim().slice(0, 40);
+      const service = String(quote.service || "").trim().slice(0, 200);
+      const budget = String(quote.budget || "").trim().slice(0, 100);
+      const details = String(quote.details || "").trim().slice(0, 5000);
+
+      if (!name || !email || !service || !details ||
+          !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        return json(request, { error: "Please provide valid name, email, service and project details." }, 400);
+      }
+
+      if (!env.RESEND_API_KEY) {
+        return json(request, { error: "Email service is not configured." }, 500);
+      }
+
+      const emailResponse = await fetch("https://api.resend.com/emails", {
+        method: "POST",
+        headers: {
+          "Authorization": `Bearer ${env.RESEND_API_KEY}`,
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          from: "NISUV Marketing <onboarding@resend.dev>",
+          to: ["enquiries@nisuvmarketing.com"],
+          reply_to: email,
+          subject: `New quote request from ${name}`,
+          text: [
+            "New Get a Quote submission",
+            "",
+            `Name: ${name}`,
+            `Email: ${email}`,
+            `Phone/WhatsApp: ${phone || "Not provided"}`,
+            `Service: ${service}`,
+            `Budget: ${budget || "Not provided"}`,
+            "",
+            "Project details:",
+            details
+          ].join("\n")
+        })
+      });
+
+      if (!emailResponse.ok) {
+        console.log("Resend error:", emailResponse.status, await emailResponse.text());
+        return json(request, { error: "Could not send quote request." }, 502);
+      }
+
+      return json(request, {
+        success: true,
+        message: "Quote request submitted successfully."
+      });
+    }
     if (request.method !== "POST" || !/^\/(api\/)?chat\/?$/.test(url.pathname)) return json(request, { error: "Not found" }, 404);
 
     let body;
